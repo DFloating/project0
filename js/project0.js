@@ -18,32 +18,97 @@ const winningMessage = () => `Player ${currentPlayer} has won!`;
 const drawMessage = () => `Game ended in a draw!`;
 const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
 
-document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
-document.querySelector('.restartButton').addEventListener('click', handleRestartGame);
+// document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+// document.querySelector('.restartButton').addEventListener('click', handleRestartGame);
 
 
 //  need event listener for each cell for when the user clicks on the cell //event paramater
 // for loop?
-function handleCellClick(clickedCellEvent) {   
-    const clickedCell = clickedCellEvent.target;
-    const clickedCellIndex = parseInt(
-      clickedCell.getAttribute('data-cell-index')
-    );
+// function handleCellClick(clickedCellEvent) {   
+//     const clickedCell = clickedCellEvent.target;
+//     const clickedCellIndex = parseInt(
+//       clickedCell.getAttribute('data-cell-index')
+//     );
 
+//     if (board[clickedCellIndex] !== "" || !gameActive) {
+//         return;
+//     }
+
+//     handleCellPlayed(clickedCell, clickedCellIndex);
+//     handleResultValidation();
+   
+// };
+function handleCellClick(event) {
+    const clickedCell = event.target;
+    const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
+
+    
     if (board[clickedCellIndex] !== "" || !gameActive) {
         return;
     }
 
+    
     handleCellPlayed(clickedCell, clickedCellIndex);
+
+    
     handleResultValidation();
-   
-};
+
+
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+}
+
+
+
 
 function handleCellPlayed(clickedCell, clickedCellIndex) {
-    
     board[clickedCellIndex] = currentPlayer;
     clickedCell.innerHTML = currentPlayer;
+    clickedCell.classList.add(`cell-${currentPlayer}`);
 }
+
+function handleResultValidation() {
+    let roundWon = false;
+    for (let i = 0; i < winningCombos.length; i++) {
+      const winningCombo = winningCombos[i];
+      let a = board[winningCombo[0]];
+      let b = board[winningCombo[1]];
+      let c = board[winningCombo[2]];
+      if (a === '' || b === '' || c === '') {
+        continue;
+      }
+      if (a === b && b === c) {
+        roundWon = true;
+        break;
+      }
+    }
+  
+    if (roundWon) {
+      statusDisplay.innerHTML = winningMessage();
+      gameActive = false;
+      return;
+    }
+  
+    let roundDraw = !board.includes('');
+    if (roundDraw) {
+      statusDisplay.innerHTML = drawMessage();
+      gameActive = false;
+      return;
+    }
+  
+    handlePlayerChange();
+  }
+  
+  function handlePlayerChange() {
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    statusDisplay.innerHTML = currentPlayerTurn();
+  };
+
+
+// function handleCellPlayed(clickedCell, clickedCellIndex) {
+    
+//     board[clickedCellIndex] = currentPlayer;
+//     clickedCell.innerHTML = currentPlayer;
+// }
 // //winning combinations cells on table
 const winningCombos = [
     [0, 1, 2], 
@@ -71,3 +136,7 @@ function handleRestartGame() {
     document.querySelectorAll('.cell')
                .forEach(cell => cell.innerHTML = "");
 } 
+
+
+document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+document.querySelector('.restartButton').addEventListener('click', handleRestartGame);

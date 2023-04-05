@@ -38,5 +38,11 @@ line-height: 50px;
     border-radius: 5px;
 } */
 
-
+.cell-X::before {
+    content: "X";
+  }
+  
+  .cell-O::before {
+    content: "O";
+  }
 
