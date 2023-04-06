@@ -1,8 +1,8 @@
 body{
-    background-color: blanchedalmond;
+    background-color: lightskyblue;
 }
 h1 {
-    color: black;
+    color: white;
     text-align: center;
 }
 section {
@@ -21,12 +21,13 @@ width: 150px;
 margin: 120px;
 margin-bottom: 10px;
 margin-top: 10px;
+color: white;
 }
 
 .cell {
 width: 75px;
 height: 75px;
-box-shadow: 0 0 0 1px #333333;
+box-shadow: 0 0 0 1px white;
 border: 1px solid;
 line-height: 50px;
 }
