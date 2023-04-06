@@ -128,18 +128,6 @@
 // // if statement to change the HTML to swap the symbol from X to O (if, else)
 
 
-// function handleRestartGame() {
-//     gameActive = true;
-//     currentPlayer = "X";
-//     gameState = ["", "", "", "", "", "", "", "", ""];
-//     // statusDisplay.innerHTML = currentPlayerTurn();
-//     document.querySelectorAll('.cell')
-//                .forEach(cell => cell.innerHTML = "");
-// } 
-
-
-// document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
-// document.querySelector('.restartButton').addEventListener('click', handleRestartGame);
 
 const cells = document.querySelectorAll('.cell');
 
@@ -195,3 +183,25 @@ function checkForDraw() {
   return Array.from(cells).every(cell => cell.textContent !== '');
 }
 //creating a new array, and with the every, we're checking every index position with a loop, and then we're checking to see if the textContent is not empty for all of them, and a winning condition hasn't been met. 
+
+
+
+
+
+
+
+
+
+
+
+// function handleRestartGame() {
+//     gameActive = true;
+//     currentPlayer = "X";
+//     gameState = ["", "", "", "", "", "", "", "", ""];
+//     // statusDisplay.innerHTML = currentPlayerTurn();
+//     document.querySelectorAll('.cell')
+//                .forEach(cell => cell.innerHTML = "");
+// } 
+
+// document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+// document.querySelector('.restartButton').addEventListener('click', handleRestartGame);
