@@ -59,51 +59,6 @@
 
 
 
-
-// function handleCellPlayed(clickedCell, clickedCellIndex) {
-//     board[clickedCellIndex] = currentPlayer;
-//     clickedCell.innerHTML = currentPlayer;
-//     clickedCell.classList.add(`cell-${currentPlayer}`);
-// }
-
-// function handleResultValidation() {
-//     let roundWon = false;
-//     for (let i = 0; i < winningCombos.length; i++) {
-//       const winningCombo = winningCombos[i];
-//       let a = board[winningCombo[0]];
-//       let b = board[winningCombo[1]];
-//       let c = board[winningCombo[2]];
-//       if (a === '' || b === '' || c === '') {
-//         continue;
-//       }
-//       if (a === b && b === c) {
-//         roundWon = true;
-//         break;
-//       }
-//     }
-  
-//     if (roundWon) {
-//       statusDisplay.innerHTML = winningMessage();
-//       gameActive = false;
-//       return;
-//     }
-  
-//     let roundDraw = !board.includes('');
-//     if (roundDraw) {
-//       statusDisplay.innerHTML = drawMessage();
-//       gameActive = false;
-//       return;
-//     }
-  
-//     handlePlayerChange();
-//   }
-  
-//   function handlePlayerChange() {
-//     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-//     statusDisplay.innerHTML = currentPlayerTurn();
-//   };
-
-
 // // function handleCellPlayed(clickedCell, clickedCellIndex) {
     
 // //     board[clickedCellIndex] = currentPlayer;
@@ -137,7 +92,7 @@ let gameEnded = false;
 
 // Add event listener to each cell
 
-for (let i = 0; i < cells.length; i++) { //Run a for Loop 
+for (let i = 0; i < cells.length; i++) { //Run a for Loop for grid. tar
     cells[i].addEventListener('click', () => { //Adding event listener to each individual cell. 
         if (!gameEnded && cells[i].textContent === '') { // If gameEnded === false, && the indivudal cell that we click text content is not occupied by anything
         cells[i].textContent = currentPlayer; // occupy with currentPlayer
@@ -162,16 +117,17 @@ for (let i = 0; i < cells.length; i++) { //Run a for Loop
 // Check if there is a win
 function checkForWin() { 
     const winningCombos = [
-      [0, 1, 2], //first row top
-      [3, 4, 5], //second row
-      [6, 7, 8], // 3rd row
-      [0, 3, 6], //first column
-      [1, 4, 7], //second column
-      [2, 5, 8], //3rd column
-      [0, 4, 8], //left start diagonal
-      [2, 4, 6], //right start diagonal 
+      [0, 1, 2], 
+      [3, 4, 5], 
+      [6, 7, 8], 
+      [0, 3, 6], 
+      [1, 4, 7], 
+      [2, 5, 8], 
+      [0, 4, 8], 
+      [2, 4, 6],  
     ];
 
+    // important for cell to not be empty
   return winningCombos.some(combo => {
     const [a, b, c] = combo; // Array destructuring, assigning values to a, b and c in relevance to the arrays nested in the WinningCombo Array
     return cells[a].textContent !== '' && cells[a].textContent === cells[b].textContent && cells[b].textContent === cells[c].textContent; //checking to see if the first index position is not empty, and the other index positions are equal to the first in terms of text content.
