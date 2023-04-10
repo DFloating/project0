@@ -25,5 +25,8 @@ X's or O's are added to the board using a function containing a for loop for the
 ## Design
 
 - The design is kept simple and elegant with a target audience of all ages. 
+
+
+
 *Please note the design will have regular updates*
 

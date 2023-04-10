@@ -26,8 +26,6 @@ section {
     width: 400px;
     margin: auto;
     margin-top: 75px;
-    
-
 }
 
 .gameContainer {
@@ -52,33 +50,26 @@ section {
 }
 
 .statusText {
-    display: block;
+    height: 36px;
     color: white;
     box-shadow: 0 0 0 2px white;
     border: 2px solid;
+    background-color: lightcoral;
+    border-radius: 3px;
 }
-
-/* .strike {
-    position: absolute;
-    background: darkmagenta;
-} */
-
-
 
 .restartButton {
     width: 150px;
-    height: 40px;
-    font-size: 18px;
+    height: 36px;
+    font-size: 21px;
+    font-weight: 900;
     color: white;
+    box-shadow: 0 0 0 2px white;
     background-color: lightseagreen;
     border: none;
     border-radius: 3px;
     border-style: solid;
 }
-
-/* button {
-    color: white;
-} */
 
 .cell-X::before {
     content: "X";

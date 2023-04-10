@@ -6,7 +6,6 @@ const restartButton = document.querySelector('.restartButton');
 // Initialize variables
 let currentPlayer = 'X';
 let gameEnded = false;
-// let gameEnded === true; 
 let options = ["", "", "", "", "", "", "", "", ""];
 
 // Add event listener to each cell
@@ -57,7 +56,7 @@ function checkForWin() {
     const [a, b, c] = combo; // Array destructuring, assigning values to a, b and c in relevance to the arrays nested in the WinningCombo Array
     return cells[a].textContent !== '' && cells[a].textContent === cells[b].textContent && cells[b].textContent === cells[c].textContent; //checking to see if the first index position is not empty, and the other index positions are equal to the first in terms of text content.
   });
-//    statusText.textContent = `${currentPlayer} won!`;
+
 }
 
 // Check if there is a draw
@@ -75,9 +74,6 @@ function restartGame() {
     statusText.textContent = `Start Game`;
     cells.forEach(cell => cell.textContent = '');
     
-               
 } ;
-
-
 
 startGame();
