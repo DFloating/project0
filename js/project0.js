@@ -1,7 +1,3 @@
-// const winningMessage = () => `Player ${currentPlayer} has won!`;
-// const drawMessage = () => `Game ended in a draw!`;
-// const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
-
 
 const cells = document.querySelectorAll('.cell');
 const statusText = document.querySelector('.statusText')
@@ -10,7 +6,8 @@ const restartButton = document.querySelector('.restartButton');
 // Initialize variables
 let currentPlayer = 'X';
 let gameEnded = false;
-// let options = ["", "", "", "", "", "", "", "", ""];
+// let gameEnded === true; 
+let options = ["", "", "", "", "", "", "", "", ""];
 
 // Add event listener to each cell
 function startGame() {
@@ -19,21 +16,21 @@ for (let i = 0; i < cells.length; i++) { //Run a for Loop for grid of cells
         if (!gameEnded && cells[i].textContent === '') { // If gameEnded === false, && the indivudal cell that we click text content is not occupied by anything
         cells[i].textContent = currentPlayer; // occupy with currentPlayer
         if (checkForWin()) { //calling below function, checking for winner
-            console.log(`${currentPlayer} won!`); // alerting that player has won
+            console.log(`${currentPlayer} won`); // consoling that player has won
             gameEnded = true;
-            statusText.textContent = `${currentPlayer} won!`
+            statusText.textContent = `${currentPlayer} won`
              // we are setting the gameEnded to true which doesn't allow any further boxes to be click 
         } else if (checkForDraw()) { //calling below function to check for draw
-            console.log('Draw!');
+            console.log('Draw');
             gameEnded = true;
-            statusText.textContent = `Draw!`
+            statusText.textContent = `Draw`
         } else {
             if (currentPlayer === "X") { //After click, checking to see if player1 is current player,
                 currentPlayer = "O"; //if so, switch to player 2
               } else {
                 currentPlayer = "X"; //opposite of above 
               }
-              statusText.textContent = `${currentPlayer}'s turn!`
+              statusText.textContent = `${currentPlayer}'s turn`
         };
         };
         restartButton.addEventListener("click", restartGame);
@@ -69,22 +66,18 @@ function checkForDraw() {
 }
 //creating a new array, and with the every, we're checking every index position with a loop, and then we're checking to see if the textContent is not empty for all of them, and a winning condition hasn't been met. 
 
-// document.querySelector('.restartButton').addEventListener('click', handleRestartGame);
-
-
-
 
 function restartGame() {
-   
-    
+    currentPlayer = 'X';
+    if (gameEnded = true && cells.textContent === '') {
+        return options;
+    } 
+    statusText.textContent = `Start Game`;
     cells.forEach(cell => cell.textContent = '');
-
+    
                
 } ;
 
 
-
-// document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
-// document.querySelector('.restartButton').addEventListener('click', handleRestartGame);
 
 startGame();
