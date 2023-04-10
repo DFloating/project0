@@ -1,11 +1,24 @@
-body{
-    background-color: lightskyblue;
+/* *, *::after, *::before {
+    box-sizing: border-box;
+} */
+
+* { border: 1px ;
+    box-sizing: border-box;
+    cursor: pointer;
 }
+
+body{
+    margin: 0;
+    background-color: lightskyblue;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 h1 {
     color: white;
     text-align: center;
     margin: 0 auto;
-    font-size: 70px;
+    font-size: 68px;
 }
 section {
     text-align: center;
@@ -13,29 +26,29 @@ section {
     width: 400px;
     margin: auto;
     margin-top: 75px;
+    
 
 }
 
-.gameContainer{
-display: grid;
-grid-template-columns: repeat(3, auto);
-width: 150px;
-margin: 90px;
-margin-bottom: 10px;
-margin-top: 10px;
-color: white;
-text-align: center;
+.gameContainer {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 150px;
+    margin: 90px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
 }
 
 .cell {
-width: 75px;
-height: 75px;
-box-shadow: 0 0 0 2px white;
-border: 2px solid;
-line-height: 75px;
-cursor: pointer;
-font-size: 50px;
-
+    width: 75px;
+    height: 75px;
+    box-shadow: 0 0 0 2px white;
+    border: 2px solid;
+    line-height: 75px;
+    font-size: 50px;
+    
 }
 
 .statusText {
@@ -44,18 +57,34 @@ font-size: 50px;
     box-shadow: 0 0 0 2px white;
     border: 2px solid;
 }
-/* button {
-    margin-bottom: 20px;
-    height: 30px;
+
+/* .strike {
+    position: absolute;
+    background: darkmagenta;
+} */
+
+
+
+.restartButton {
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    background-color: lightseagreen;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
+    border-style: solid;
+}
+
+/* button {
+    color: white;
 } */
 
 .cell-X::before {
     content: "X";
-  }
+}
   
-  .cell-O::before {
+.cell-O::before {
     content: "O";
-  }
+}
 
